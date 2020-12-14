@@ -12,7 +12,6 @@ using BusinessTrip.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BusinessTrip.Services;
 
 namespace BusinessTrip
 {
@@ -33,7 +32,6 @@ namespace BusinessTrip
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped(typeof(IStatementService), typeof(StatementService));
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
